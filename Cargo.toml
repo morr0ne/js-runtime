@@ -1,0 +1,18 @@
+[package]
+name = "js-runtime"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
+
+[dependencies]
+anyhow = "1.0.89"
+mozjs = { git = "https://github.com/servo/mozjs", rev = "a02aaf1e11fd275f2f129d0c7ca80a9d07460036" }
+tracing = "0.1.40"
+tracing-subscriber = { version = "0.3.18", features = [
+    "env-filter",
+    "tracing-log",
+] }
